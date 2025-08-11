@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>枕流起始页</title>
+    <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+</head>
+<style>
+    html {
+        background: url('./background.png') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        overflow-x: hidden;
+        overflow-y: hidden
+    }
+    
+    #whole {
+        position: absolute;
+        background-color: #7b90d2;
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+    }
+    
+    #hello {
+        background-color: rgb(252, 250, 242, 0.3);
+        color: #7b90d2;
+        backdrop-filter: blur(15px);
+        margin: 0 auto;
+        width: 130px;
+        height: 50px;
+        text-align: center;
+        border-radius: 25px;
+        line-height: 50px;
+        font-size: larger;
+        font-weight: bold;
+        text-indent: 15px;
+        animation: hello 2s forwards;
+    }
+    
+    #researchbox {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        text-align: center;
+        top: 25%;
+        width: 100%;
+        height: max-content;
+        font-size: 600%;
+        border: 0ch;
+        opacity: 0.4;
+        outline: none;
+        color: #7b90d2;
+    }
+    
+    #researchbox::placeholder {
+        color: #7b90d2;
+    }
+    
+    #researchbox:hover {
+        animation: search 0.2s forwards;
+    }
+    
+    #researchbox:focus {
+        animation: search 0.1s forwards;
+    }
+    
+    #time {
+        position: absolute;
+        color: #7b90d2;
+        opacity: 0.3;
+        font-size: 120%;
+        width: 10%;
+        left: 45%;
+        top: 47%;
+        text-align: center;
+        text-decoration: none;
+        cursor: alias;
+    }
+    
+    #time:hover {
+        animation: time 0.2s forwards;
+    }
+    
+    #yiyan {
+        background-color: rgba(125, 185, 222, 0);
+        height: 15%;
+        bottom: 15%;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        animation: appear 0s forwards;
+    }
+    
+    #yiyan:hover {
+        animation: yiyan 0.2s forwards;
+    }
+    
+    #yiyan:hover #hitokoto {
+        animation: hitokoto 0.2s forwards;
+    }
+    
+    #hitokoto {
+        position: relative;
+        top: 35%;
+        text-decoration: none;
+        color: #6e75a4;
+        font-family: mincho;
+        font-size: 130%;
+        opacity: 0.7;
+        visibility: inherit;
+    }
+    
+    #makuraryugithub {
+        position: absolute;
+        bottom: -10px;
+        text-align: center;
+        width: 100%;
+        font-family: mincho;
+        font-size: 15px;
+        opacity: 0.7;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #6e75a4;
+        margin: 5px;
+    }
+    
+    #links {
+        background-color: rgba(125, 185, 222, .4);
+        backdrop-filter: blur(5px);
+        height: 15%;
+        bottom: 15%;
+        border-radius: 20px;
+        left: 15%;
+        align-items: center;
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        position: absolute;
+        bottom: 15%;
+        animation: disappear 0s forwards;
+        visibility: hidden;
+    }
+    
+    #links>div {
+        background-color: rgba(123, 144, 210, 0.4);
+        margin: 0 auto;
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+        display: inherit;
+        cursor: pointer;
+    }
+    
+    #links>div>img {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        display: inherit;
+    }
+    
+    #links>div:hover {
+        animation: links 0.4s forwards;
+    }
+    
+    #links>div::after {
+        position: absolute;
+        background-color: #a5dee4;
+        content: "";
+        bottom: -5%;
+        height: 0px;
+        width: 200%;
+    }
+    
+    #links>div:hover::after {
+        animation: linksafter 0.4s forwards;
+    }
+    
+    @font-face {
+        font-family: Mincho;
+        src: url(./mincho.ttf);
+    }
+    
+    @keyframes search {
+        0% {
+            font-size: 600%;
+        }
+        100% {
+            font-size: 650%;
+            transform: translateY(-5px);
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+    }
+    
+    @keyframes time {
+        0% {
+            font-size: 120%;
+        }
+        100% {
+            font-size: 125%;
+            opacity: 0.6;
+        }
+    }
+    
+    @keyframes hitokoto {
+        0% {
+            font-size: 130%;
+        }
+        100% {
+            font-size: 135%;
+            opacity: 0.8;
+            letter-spacing: 3px;
+        }
+    }
+    
+    @keyframes yiyan {
+        0% {
+            background-color: rgba(125, 185, 222, 0);
+        }
+        100% {
+            background-color: rgba(125, 185, 222, .2);
+            backdrop-filter: blur(5px);
+        }
+    }
+    
+    @keyframes hello {
+        0% {
+            transform: translateY(-70px);
+        }
+        40% {
+            transform: translateY(30px);
+        }
+        60% {
+            transform: translateY(30px);
+        }
+        100% {
+            transform: translateY(-70px);
+        }
+    }
+    
+    @keyframes appear {
+        0% {
+            opacity: 0%;
+            visibility: hidden;
+        }
+        100% {
+            opacity: 100%;
+            visibility: visible;
+        }
+    }
+    
+    @keyframes disappear {
+        0% {
+            opacity: 100%;
+            visibility: visible;
+        }
+        100% {
+            opacity: 0%;
+            visibility: hidden;
+        }
+    }
+    
+    @keyframes links {
+        0% {
+            transform: rotateY(0);
+        }
+        30% {
+            transform: translateY(-2px) rotateY(15deg) rotateX(-7deg);
+        }
+        100% {
+            transform: translateY(-4px);
+            background-color: rgba(123, 144, 210, 0.2);
+        }
+    }
+    
+    @keyframes linksafter {
+        0% {
+            width: 0%;
+            height: 0%;
+        }
+        30% {
+            transform: translateY(2px);
+        }
+        100% {
+            width: 100%;
+            height: 5%;
+            transform: translateY(4px);
+        }
+    }
+</style>
+
+<body>
+    <div id="whole"></div>
+    <input type="text" id="researchbox">
+
+    <a id="time" href="https://time.is/zh/" title="点击跳转到世界时钟" target="view_window"></a>
+    <div id="yiyan">
+        <a href="#" id="hitokoto" title="由「一言」支持" target="view_window">:D 获取中...</a>
+    </div>
+    <p id="makuraryugithub">
+        <a href="http://makuraryu.rth.app" target="view_window">濑户枕流制作</a>
+        <a href="https://github.com/Makuraryu/MR-starter" target="view_window">github</a>
+    </p>
+    <div id="hello">你好！</div>
+    <div id="links"></div>
+
+    <script>
+        let hand = ['👌 ', '🤙 ', '👋', '✍️', '✌️']
+        const researchbox = document.getElementById("researchbox")
+        var linkappear = 0
+        window.document.onkeydown = disableRefresh;
+        window.onload = rendertime()
+        sertext()
+        renderhello()
+
+
+
+        researchbox.addEventListener("click", linking)
+        document.getElementById("whole").addEventListener("click", gniknil)
+
+
+        function linking() {
+            document.getElementById("yiyan").style.animation = 'disappear 0.3s forwards'
+            document.getElementById("links").style.animation = 'appear 0.3s forwards'
+        }
+
+        function gniknil() {
+            document.getElementById("yiyan").style.animation = ''
+            document.getElementById("links").style.animation = 'disappear 0.3s forwards'
+
+        }
+
+
+        function disableRefresh(evt) {
+            evt = (evt) ? evt : window.event
+            if (evt.keyCode) {
+                if (evt.keyCode == 13) {
+                    gotoser()
+                    gniknil()
+                }
+            }
+        }
+
+        function gotoser() {
+            const golink = "https://duckduckgo.com/?q=" + researchbox.value
+            window.open(golink)
+            researchbox.value = ""
+        }
+
+
+        function renderhello() {
+            const hello = document.getElementById("hello")
+            const now = new Date()
+            var time = now.getHours()
+            if (time <= 5) {
+                hello.innerText = "凌晨好！"
+            } else
+            if (time <= 10) {
+                hello.innerText = "早上好！"
+            } else
+            if (time <= 12) {
+                hello.innerText = "中午好！"
+            } else
+            if (time <= 17) {
+                hello.innerText = "下午好！"
+            } else
+            if (time < 24) {
+                hello.innerText = "晚上好！"
+            }
+        }
+
+
+
+        function rendertime() {
+            const now = new Date()
+            var now_hours = now.getHours()
+            var now_minutes = now.getMinutes()
+            var now_seconds = now.getSeconds()
+            now_hours = timeprocess(now_hours)
+            now_minutes = timeprocess(now_minutes)
+            now_seconds = timeprocess(now_seconds)
+            const time = now_hours + ':' + now_minutes + ':' + now_seconds
+            document.getElementById('time').innerHTML = time
+            setTimeout(function() {
+                rendertime()
+            }, 500);
+
+        }
+
+
+        function timeprocess(i) {
+            if (i < 10) {
+                i = '0' + i
+            } else
+                i = i
+            return i
+        }
+
+        fetch('https://v1.hitokoto.cn')
+            .then(response => response.json())
+            .then(data => {
+                const hitokoto = document.getElementById('hitokoto')
+                hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+                hitokoto.innerText = "『" + data.hitokoto + "』"
+            })
+            .catch(console.error)
+
+
+        function randomValueFromArray(array) {
+            const random = Math.floor(Math.random() * array.length);
+            return array[random];
+        }
+
+
+
+        function sertext() {
+            let serhand = randomValueFromArray(hand)
+            var serct = "Search" + serhand + "!"
+            researchbox.setAttribute("placeholder", serct)
+
+        }
+
+
+
+        class links {
+            constructor(name, icon, links) {
+                this.name = name
+                this.icon = icon
+                this.links = links
+                this.renderlinks()
+            }
+            renderlinks() {
+                let linker = "window.open('" + this.links + "')," + "gniknil()"
+                const link = document.createElement("div")
+                link.setAttribute("id", this.name)
+                link.setAttribute("onclick", linker)
+                const icon = document.createElement("img")
+                icon.setAttribute("src", this.icon)
+                icon.setAttribute("height", "30px")
+                icon.setAttribute("width", "30px")
+                document.getElementById("links").appendChild(link)
+                document.getElementById(this.name).appendChild(icon)
+            }
+        }
+
+        const data = [{
+            name: "bilibili",
+            icon: "https://www.bilibili.com/favicon.ico?v=1",
+            links: "http://bilibili.com"
+        }, {
+            name: "github",
+            icon: "https://github.com/fluidicon.png",
+            links: "https://github.com/"
+        }, {
+            name: "yuque",
+            icon: "https://gw.alipayobjects.com/zos/rmsportal/UTjFYEzMSYVwzxIGVhMu.png",
+            links: "https://www.yuque.com/dashboard"
+        }, {
+            name: "wangyiyun",
+            icon: "http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg",
+            links: "https://music.163.com/"
+        }, {
+            name: "fanyi",
+            icon: "http://ssl.gstatic.com/translate/favicon.ico",
+            links: "https://translate.google.cn/"
+        }]
+
+        data.map(
+            item => {
+                new links(item.name, item.icon, item.links)
+            }
+        )
+    </script>
+
+
+
+</body>
+
+
+
+</html>
