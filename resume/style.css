@@ -168,7 +168,7 @@ img{
 }
 
 
-@media (aspect-ratio < 1) {
+@media (max-width: 768px) {
     body {
         padding: 5vh 5vw;
     }
