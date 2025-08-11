@@ -1,0 +1,165 @@
+:root{
+    --black: 11,16,19;
+    --bgcolor: 38,30,71;
+    --textcolor: 250,214,137;
+    --titlecolor: 252,250,242;
+    --light: 248,195,205;
+    --bigtitlecolor: 254,223,225;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+html{
+    background-color: black;
+
+}
+body{
+    margin: 0;
+    background-color: rgba(var(--bgcolor),0.8);
+    padding: 10vh 20vw;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+h1{
+    text-align: center;
+    animation: title 5s linear infinite;
+    font-size: 5em;
+}
+
+
+#links{
+    position: absolute;
+    top: 2vh;
+    width: 60vw;
+}
+
+#links a{
+    color: rgba(var(--textcolor),0.2);
+    margin: 1em;
+}
+
+#links a::after{
+    content: ' ';
+}
+
+#links a:hover{
+    color: rgba(var(--textcolor),1);
+    text-shadow: 
+        0 0 1em rgba(var(--light),0.8),
+        0 0 1.2em rgba(var(--textcolor),0.8);
+
+}
+
+
+h2,h3,h4,h5,h6{
+    color: rgba(var(--titlecolor),0.9);
+    text-align: center;
+    text-shadow: 
+        0 0 1.2em rgba(var(--titlecolor),0.9),
+        0 0 2em rgba(var(--light),0.6);
+    font-weight: 800;
+
+}
+p,li{
+    color: rgba(var(--textcolor),0.8);
+    text-shadow: 0 0 20px rgba(var(--light),0.3);
+    font-size: 1.2em;
+    font-weight: 200;
+    transition: 0.3s;
+    margin: 0.5em;
+    line-height: 1.2em;
+}
+a{
+    color: rgba(var(--textcolor),0.8);
+    text-decoration: none;
+    transition: 0.3s;
+
+
+}
+a::after{
+    content: ' ⬈';
+}
+a:hover{
+    color: rgba(var(--textcolor),1);
+    text-shadow: 
+        0 0 1em rgba(var(--light),0.8),
+        0 0 1.2em rgba(var(--textcolor),0.8);
+}
+img{
+    height: 200px;
+    display: block;
+    margin: 5px auto;
+    box-shadow: 0 0 30em 0.5em rgba(var(--light),0.3);
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    body {
+        width: 100vw;
+        padding: 5vh 10vw;
+    }
+}
+
+@keyframes title {
+    0%{
+        color: rgba(var(--bigtitlecolor),0.2);
+
+    }
+    0.5%{
+        color: rgba(var(--bigtitlecolor),0.9);
+        text-shadow: 
+        0 0 1.2em rgba(var(--bigtitlecolor),0.9),
+        0 0 2em rgba(var(--light),0.6);
+    }
+    1%{
+        color: rgba(var(--bigtitlecolor),0.2);
+
+    }
+    1.5%{
+        color: rgba(var(--bigtitlecolor),1);
+        text-shadow: 
+        0 0 1.2em rgba(var(--bigtitlecolor),1),
+        0 0 2em rgba(var(--light),0.6);
+    }
+    2.5%{
+        color: rgba(var(--bigtitlecolor),0.2);
+
+    }
+    10%{
+        color: rgba(var(--bigtitlecolor),1);
+        text-shadow: 
+        0 0 1.3em rgba(var(--bigtitlecolor),0.9),
+        0 0 2.1em rgba(var(--light),0.6); 
+    }
+    15%{
+        color: rgba(var(--bigtitlecolor),1);
+        text-shadow: 
+        0 0 1.2em rgba(var(--bigtitlecolor),0.9),
+        0 0 2em rgba(var(--light),0.6); 
+    }
+    50%{
+        color: rgba(var(--bigtitlecolor),1);
+        text-shadow: 
+        0 0 1.2em rgba(var(--bigtitlecolor),0.9),
+        0 0 2em rgba(var(--light),0.6); 
+    }
+    51%{
+        color: rgba(var(--bigtitlecolor),0.2);
+    }
+    52%{
+        color: rgba(var(--bigtitlecolor),1);
+        text-shadow: 
+        0 0 1.2em rgba(var(--bigtitlecolor),0.9),
+        0 0 2em rgba(var(--light),0.6); 
+    }
+    98%{
+        color: rgba(var(--bigtitlecolor),1);
+        text-shadow: 
+        0 0 1.2em rgba(var(--bigtitlecolor),0.9),
+        0 0 2em rgba(var(--light),0.6);
+    }
+    100%{
+        color: rgba(var(--bigtitlecolor),0.2);
+    }
+}
